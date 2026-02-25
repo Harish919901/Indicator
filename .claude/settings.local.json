@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(head:*)",
+      "Bash(echo done:*)",
+      "Bash(netstat -ano)",
+      "Bash(while read pid)",
+      "Bash(do taskkill //PID \"$pid\" //F)",
+      "Bash(done)",
+      "Bash(cd D:\\\\OneDrive\\\\Desktop\\\\Indc:*)"
+    ]
+  }
+}
