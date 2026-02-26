@@ -10,7 +10,10 @@
       "Bash(done)",
       "Bash(cd D:\\\\OneDrive\\\\Desktop\\\\Indc:*)",
       "Bash(cd \"D:/OneDrive/Desktop/Indc/indicatorems\" && npm run dev)",
-      "Bash(cd D:/OneDrive/Desktop/Indc/indicatorems && npx tsc --noEmit --pretty 2>&1 | head -30)"
+      "Bash(cd D:/OneDrive/Desktop/Indc/indicatorems && npx tsc --noEmit --pretty 2>&1 | head -30)",
+      "Bash(find \"D:\\\\OneDrive\\\\Desktop\\\\Indc\\\\indicatorems/src\" -type f -name \"*.ts\" -o -name \"*.tsx\" 2>/dev/null | grep -v node_modules | head -30)",
+      "Bash(grep -r \"VITE_\" \"D:\\\\OneDrive\\\\Desktop\\\\Indc\\\\indicatorems\" --include=\"*.ts\" --include=\"*.tsx\" --include=\"*.js\" --include=\"*.json\" 2>/dev/null | grep -v node_modules | head -20)",
+      "Bash(find \"D:\\\\OneDrive\\\\Desktop\\\\Indc\\\\indicatorems\" -type f -name \"*.ts\" -o -name \"*.tsx\" 2>/dev/null | grep -v node_modules | xargs grep -l \"VITE_\\\\|import.*supabase\\\\|from.*supabase\" 2>/dev/null | head -20)"
     ]
   }
 }

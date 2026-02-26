@@ -44,7 +44,7 @@ export default function Index() {
     <div className="space-y-8">
       {/* Greeting */}
       <div>
-        <h1 className="text-2xl font-bold text-indigo">Welcome back, Rajesh 👋</h1>
+        <h1 className="text-2xl font-bold text-indigo">Welcome back, Srinath 👋</h1>
         <p className="text-sm font-semibold text-muted-foreground">Here's your manufacturing operations overview.</p>
       </div>
 
