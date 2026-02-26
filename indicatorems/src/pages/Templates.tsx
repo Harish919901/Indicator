@@ -8,6 +8,7 @@ import {
   Library, Download, Copy, Eye, Search, FileSpreadsheet, Star,
   Sparkles, FileText, ShoppingCart, Microscope, Factory
 } from "lucide-react";
+import { toast } from "sonner";
 import {
   aiPromptTemplates,
   businessCommTemplates,
@@ -104,6 +105,10 @@ export default function Templates() {
 
         {/* ── TAB 1: AI Prompts ── */}
         <TabsContent value="ai-prompts" className="space-y-8">
+          <p className="text-base font-bold flex items-center gap-2">
+            <Sparkles className="h-5 w-5" style={{ color: categoryColors.ai.bg }} />
+            AI Templates powered by DigiBull's ISTVON Framework
+          </p>
           {aiSections.map((section) => {
             const items = filteredAI.filter((t) => t.section === section.key);
             if (items.length === 0) return null;
@@ -124,6 +129,9 @@ export default function Templates() {
                       actionIcon={<Sparkles className="h-3 w-3" />}
                       onAction={() => setSelectedAI(t)}
                       accentColor={categoryColors.ai}
+                      prompt={t.prompt}
+                      showPreview
+                      onPreview={() => setSelectedAI(t)}
                     />
                   ))}
                 </div>
@@ -222,6 +230,7 @@ function TemplateCard({
   showPreview,
   onPreview,
   accentColor,
+  prompt,
 }: {
   title: string;
   subtitle: string;
@@ -234,6 +243,7 @@ function TemplateCard({
   showPreview?: boolean;
   onPreview?: () => void;
   accentColor?: { bg: string; bgLight: string; border: string; text: string };
+  prompt?: string;
 }) {
   const accent = accentColor || { bg: "hsl(var(--primary))", bgLight: "hsl(var(--accent))", border: "hsl(var(--primary))", text: "hsl(var(--primary))" };
 
@@ -271,7 +281,17 @@ function TemplateCard({
               {actionIcon}
               {actionLabel}
             </Button>
-            <Button variant="ghost" size="sm" className="text-xs gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-xs gap-1"
+              onClick={() => {
+                const text = prompt || title;
+                navigator.clipboard.writeText(text).then(() => {
+                  toast.success("Copied to clipboard!");
+                });
+              }}
+            >
               <Copy className="h-3 w-3" />
             </Button>
             {showPreview && onPreview ? (

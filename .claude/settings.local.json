@@ -8,7 +8,9 @@
       "Bash(while read pid)",
       "Bash(do taskkill //PID \"$pid\" //F)",
       "Bash(done)",
-      "Bash(cd D:\\\\OneDrive\\\\Desktop\\\\Indc:*)"
+      "Bash(cd D:\\\\OneDrive\\\\Desktop\\\\Indc:*)",
+      "Bash(cd \"D:/OneDrive/Desktop/Indc/indicatorems\" && npm run dev)",
+      "Bash(cd D:/OneDrive/Desktop/Indc/indicatorems && npx tsc --noEmit --pretty 2>&1 | head -30)"
     ]
   }
 }

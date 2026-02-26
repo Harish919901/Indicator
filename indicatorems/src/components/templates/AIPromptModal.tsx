@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,14 +22,17 @@ export default function AIPromptModal({ template, open, onOpenChange }: AIPrompt
   const [loading, setLoading] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  // Reset state when template changes
-  const handleOpenChange = (isOpen: boolean) => {
-    if (isOpen && template) {
+  // Initialize prompt when modal opens with a template
+  useEffect(() => {
+    if (open && template) {
       setPrompt(template.prompt);
       setOutput("");
       setFile(null);
       setDateFilter("");
     }
+  }, [open, template]);
+
+  const handleOpenChange = (isOpen: boolean) => {
     onOpenChange(isOpen);
   };
 
